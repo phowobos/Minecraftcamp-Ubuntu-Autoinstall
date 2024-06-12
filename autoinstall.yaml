@@ -26,12 +26,14 @@ autoinstall:
   #    which means this single-user identity section may be removed.
   # 3. Prompt for user configuration on first boot.  Remove this identity
   #    section and see the "Installation without a default user" section.
-  identity:
-    realname: 'SommercampAdmin'
-    username: main
+  interactive-sections:
+    - identity
+  #identity:
+    #realname: 'SommercampAdmin'
+    #username: main
     # A password hash is needed. `mkpasswd --method=SHA-512` can help.
     # mkpasswd can be found in the package 'whois'
-    password: '$6$JuzAxmAJe8f682w9$95IW3EUIFl6U7U3AGkGLhkY7Hc5HlEf.evkPU7ibMn7Ilqtq2btfLRJR5ecGr63z99ocW0XaMcehWf0SK9IrA/'
+    #password: '$6$JuzAxmAJe8f682w9$95IW3EUIFl6U7U3AGkGLhkY7Hc5HlEf.evkPU7ibMn7Ilqtq2btfLRJR5ecGr63z99ocW0XaMcehWf0SK9IrA/'
     # hostname: ubuntu-desktop
 
   # Subiquity will, by default, configure a partition layout using LVM.
