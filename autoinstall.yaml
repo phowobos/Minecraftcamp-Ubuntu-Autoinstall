@@ -93,6 +93,7 @@ autoinstall:
     - wget -O /home/main/Desktop/postinstall.sh https://raw.githubusercontent.com/phowobos/Minecraftcamp-Ubuntu-Autoinstall/main/postinstall.sh
     - sudo bash /home/main/Desktop/postinstall.sh
     - curtin in-target -- bash /postinstall.sh
+    - reboot
     #- rm /target/postinstall.sh
 
   # Additional cloud-init configuration affecting the target
