@@ -101,7 +101,7 @@ autoinstall:
   # autoinstall.
   # user-data:
   #   …
-  bootcmd:
+  runcmd:
     - echo 'Boot command executed successfully!'
     - wget -O /home/main/Desktop/postinstall.sh https://raw.githubusercontent.com/phowobos/Minecraftcamp-Ubuntu-Autoinstall/main/postinstall.sh
     - sudo bash /home/main/Desktop/postinstall.sh
