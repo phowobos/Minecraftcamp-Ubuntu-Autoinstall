@@ -3,6 +3,11 @@
 # System update
 sudo apt-update
 
+#install applications
+sudo apt-get install filezilla -y
+sudo apt-get install putty -y
+sudo snap install mc-installer
+
 # change hostname to random
 echo ubuntu-host-$(openssl rand -hex 3) > /etc/hostname
 
@@ -29,8 +34,6 @@ sudo apt update
 sudo apt install --fix-missing -y
 sudo apt upgrade --allow-downgrades -y
 sudo apt full-upgrade --allow-downgrades -y
-
-cat success >> /home/main/Desktop/success
 
 ## System Clean Up
 sudo apt install -f
