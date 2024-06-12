@@ -26,8 +26,6 @@ autoinstall:
   #    which means this single-user identity section may be removed.
   # 3. Prompt for user configuration on first boot.  Remove this identity
   #    section and see the "Installation without a default user" section.
-  interactive-sections:
-    - identity
   identity:
     realname: 'SommercampAdmin'
     username: main
