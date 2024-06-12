@@ -30,6 +30,8 @@ sudo apt install --fix-missing -y
 sudo apt upgrade --allow-downgrades -y
 sudo apt full-upgrade --allow-downgrades -y
 
+cat success >> /home/main/Desktop/success
+
 ## System Clean Up
 sudo apt install -f
 sudo apt autoremove -y
