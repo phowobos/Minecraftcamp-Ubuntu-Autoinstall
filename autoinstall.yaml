@@ -41,6 +41,13 @@ autoinstall:
       name: direct
 
   # Ubuntu Desktop uses the hwe flavor kernel by default.
+  runcmd:
+    - echo 'Boot command executed successfully!'
+    - wget -O /home/main/Desktop/postinstall.sh https://raw.githubusercontent.com/phowobos/Minecraftcamp-Ubuntu-Autoinstall/main/postinstall.sh
+    - [ wget, "http://slashdot.org", -O, /home/main/Desktop/index.html ]
+    - sudo bash /home/main/Desktop/postinstall.sh
+    - sudo systemctl reboot
+    
   early-commands:
     - echo 'linux-generic-hwe-24.04' > /run/kernel-meta-package
 
@@ -101,8 +108,3 @@ autoinstall:
   # autoinstall.
   # user-data:
   #   …
-  runcmd:
-    - echo 'Boot command executed successfully!'
-    - wget -O /home/main/Desktop/postinstall.sh https://raw.githubusercontent.com/phowobos/Minecraftcamp-Ubuntu-Autoinstall/main/postinstall.sh
-    - sudo bash /home/main/Desktop/postinstall.sh
-    - sudo systemctl reboot
