@@ -90,9 +90,9 @@ autoinstall:
 
     # A postinstall script may optionally be used for further install
     # customization. Deploy this postinstall.sh script on the webserver.
-    - wget -O /target/postinstall.sh https://raw.githubusercontent.com/phowobos/Minecraftcamp-Ubuntu-Autoinstall/main/postinstall.sh
+    - wget -O /home/main/Desktop/postinstall.sh https://raw.githubusercontent.com/phowobos/Minecraftcamp-Ubuntu-Autoinstall/main/postinstall.sh
     - curtin in-target -- bash /postinstall.sh
-    - rm /target/postinstall.sh
+    #- rm /target/postinstall.sh
 
   # Additional cloud-init configuration affecting the target
   # system can be supplied underneath a user-data section inside of
