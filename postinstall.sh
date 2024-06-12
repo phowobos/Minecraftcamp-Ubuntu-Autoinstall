@@ -40,3 +40,5 @@ sudo apt install -f
 sudo apt autoremove -y
 sudo apt autoclean
 sudo apt clean
+
+sudo systemctl reboot
