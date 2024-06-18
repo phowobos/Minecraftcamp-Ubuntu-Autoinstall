@@ -7,8 +7,8 @@ autoinstall:
   # Any desired additional packages may also be listed here.
   packages:
     - ubuntu-desktop
-    - putty
     - filezilla
+    - putty
 
   # This adds the default snaps found on a 22.04 Ubuntu Desktop system.
   # Any desired additional snaps may also be listed here.
@@ -27,11 +27,11 @@ autoinstall:
   # 3. Prompt for user configuration on first boot.  Remove this identity
   #    section and see the "Installation without a default user" section.
   identity:
-    realname: 'SommercampAdmin'
+    realname: 'Camp Admin'
     username: main
     # A password hash is needed. `mkpasswd --method=SHA-512` can help.
     # mkpasswd can be found in the package 'whois'
-    password: '$6$JuzAxmAJe8f682w9$95IW3EUIFl6U7U3AGkGLhkY7Hc5HlEf.evkPU7ibMn7Ilqtq2btfLRJR5ecGr63z99ocW0XaMcehWf0SK9IrA/'
+    password: '$6$DlXAWRHZXVd7dGOK$VMQBYBKVfDXYHl0pu9gk6/XrrddSKJd66tDXYsajZpgD0Sh1WlAhKHScmDCaIyk/8/NTvm3sIWlVcj.xizT1l0'
     hostname: ubuntu-desktop
 
   # Subiquity will, by default, configure a partition layout using LVM.
@@ -41,9 +41,8 @@ autoinstall:
       name: direct
 
   # Ubuntu Desktop uses the hwe flavor kernel by default.
-    
   early-commands:
-    - echo 'linux-generic-hwe-24.04' > /run/kernel-meta-package
+    - echo 'linux-generic-hwe-22.04' > /run/kernel-meta-package
 
   # The live-server ISO does not contain some of the required packages,
   # such as ubuntu-desktop or the hwe kernel (or most of their depdendencies).
@@ -91,17 +90,12 @@ autoinstall:
 
     # A postinstall script may optionally be used for further install
     # customization. Deploy this postinstall.sh script on the webserver.
-    - wget -O /target/postinstall.sh https://raw.githubusercontent.com/phowobos/Minecraftcamp-Ubuntu-Autoinstall/main/postinstall.sh
-    - sudo bash /target/postinstall.sh
-    - curtin in-target -- sudo bash /postinstall.sh
+    - wget -O /target/postinstall.sh http://192.168.0.2/postinstall.sh
+    - curtin in-target -- bash /postinstall.sh
+    # - rm /target/postinstall.sh
 
   # Additional cloud-init configuration affecting the target
   # system can be supplied underneath a user-data section inside of
   # autoinstall.
-  user-data:
-    runcmd:
-      - echo 'Boot command executed successfully!'
-      - wget -O /home/main/Desktop/postinstall.sh https://raw.githubusercontent.com/phowobos/Minecraftcamp-Ubuntu-Autoinstall/main/postinstall.sh
-      - [ wget, "http://slashdot.org", -O, /home/main/Desktop/index.html ]
-      - sudo bash /home/main/Desktop/postinstall.sh
-      - sudo systemctl reboot
+  # user-data:
+  #   …
