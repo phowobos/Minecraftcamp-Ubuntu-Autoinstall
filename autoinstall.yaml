@@ -19,6 +19,9 @@ autoinstall:
     - name: snap-store
     - name: snapd-desktop-integration
     - name: mc-installer
+    - name: subiquity
+      channel: stable
+      classic: true
 
   # User creation can occur in one of 3 ways:
   # 1. Create a user using this `identity` section.
