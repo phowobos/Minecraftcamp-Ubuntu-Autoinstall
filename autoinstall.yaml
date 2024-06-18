@@ -9,6 +9,7 @@ autoinstall:
     - ubuntu-desktop
     - filezilla
     - putty
+    - openjdk-11-jre
 
   # This adds the default snaps found on a 22.04 Ubuntu Desktop system.
   # Any desired additional snaps may also be listed here.
