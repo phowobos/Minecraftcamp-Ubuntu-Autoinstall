@@ -9,7 +9,7 @@ sudo apt-get install putty -y
 sudo snap install mc-installer
 
 # change hostname to random
-echo ubuntu-host-$(openssl rand -hex 3) > /etc/hostname
+echo Ubuntu-Laptop-$(openssl rand -hex 3) > /etc/hostname
 
 # Function to create a new user
 create_user() {
