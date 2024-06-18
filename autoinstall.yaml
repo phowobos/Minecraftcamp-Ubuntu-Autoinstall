@@ -43,7 +43,6 @@ autoinstall:
   storage:
     layout:
       name: direct
-      reset-partition: true
 
   # Ubuntu Desktop uses the hwe flavor kernel by default.
   # early-commands:
