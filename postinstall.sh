@@ -11,6 +11,42 @@ sudo snap install mc-installer
 # change hostname to random
 echo Ubuntu-Laptop-$(openssl rand -hex 3) > /etc/hostname
 
+# set wallpaper https://raw.githubusercontent.com/phowobos/Minecraftcamp-Ubuntu-Autoinstall/main/Minecraft_Background.png
+sudo mkdir /usr/share/wallpapers
+sudo wget https://raw.githubusercontent.com/phowobos/Minecraftcamp-Ubuntu-Autoinstall/main/Minecraft_Background.png -P /usr/share/wallpapers
+
+cat >> /etc/dconf/profile/user << EOF
+user-db:user
+system-db:local
+EOF
+
+cat >> /etc/dconf/db/local.d/00-background << EOF
+# Specify the dconf path
+[org/gnome/desktop/background]
+
+# Specify the path to the desktop background image file
+picture-uri='file:///usr/share/wallpapers/Minecraft_Background.png'
+
+# Specify one of the rendering options for the background image:
+picture-options='scaled'
+
+# Specify the left or top color when drawing gradients, or the solid color
+primary-color='000000'
+
+# Specify the right or bottom color when drawing gradients
+secondary-color='FFFFFF'
+EOF
+
+cat >> /etc/dconf/db/local.d/locks/background << EOF
+# Lock desktop background settings
+/org/gnome/desktop/background/picture-uri
+/org/gnome/desktop/background/picture-options
+/org/gnome/desktop/background/primary-color
+/org/gnome/desktop/background/secondary-color
+EOF
+
+sudo dconf update
+
 # Function to create a new user
 create_user() {
     username=$1
