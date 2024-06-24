@@ -21,6 +21,7 @@ user-db:user
 system-db:local
 EOF
 
+sudo mkdir /etc/dconf/db/local.d
 sudo cat >> /etc/dconf/db/local.d/00-background << EOF
 # Specify the dconf path
 [org/gnome/desktop/background]
@@ -38,6 +39,7 @@ primary-color='000000'
 secondary-color='FFFFFF'
 EOF
 
+sudo mkdir /etc/dconf/db/local.d/locks
 sudo cat >> /etc/dconf/db/local.d/locks/background << EOF
 # Lock desktop background settings
 /org/gnome/desktop/background/picture-uri
