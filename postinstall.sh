@@ -5,6 +5,7 @@ sudo apt-update
 
 #install applications
 sudo apt-get install filezilla -y
+sudo apt-get install dconf -y
 sudo apt-get install putty -y
 sudo snap install mc-installer
 
