@@ -30,13 +30,13 @@ echo Ubuntu-Laptop-$(openssl rand -hex 3) > /etc/hostname
 sudo mkdir /usr/share/wallpapers
 sudo wget https://raw.githubusercontent.com/phowobos/Minecraftcamp-Ubuntu-Autoinstall/main/Minecraft_Background.png -P /usr/share/wallpapers
 
-sudo cat >> /etc/dconf/profile/user << EOF
+sudo bash -c 'cat >> /etc/dconf/profile/user << EOF'
 user-db:user
 system-db:local
 EOF
 
 sudo mkdir /etc/dconf/db/local.d
-sudo cat >> /etc/dconf/db/local.d/00-background << EOF
+sudo bash -c 'cat >> /etc/dconf/db/local.d/00-background << EOF'
 # Specify the dconf path
 [org/gnome/desktop/background]
 
@@ -54,7 +54,7 @@ secondary-color='FFFFFF'
 EOF
 
 sudo mkdir /etc/dconf/db/local.d/locks
-sudo cat >> /etc/dconf/db/local.d/locks/background << EOF
+sudo bash -c 'cat >> /etc/dconf/db/local.d/locks/background << EOF'
 # Lock desktop background settings
 /org/gnome/desktop/background/picture-uri
 /org/gnome/desktop/background/picture-options
