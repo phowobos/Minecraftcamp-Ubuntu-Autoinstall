@@ -1,18 +1,15 @@
 #cloud-config
 autoinstall:
-  # version is an Autoinstall required field.
   version: 1
 
-  # This adds the default ubuntu-desktop packages to the system.
-  # Any desired additional packages may also be listed here.
+  # adding the default ubuntu-desktop packages to the system.
   packages:
     - ubuntu-desktop
     - filezilla
     - putty
     - openjdk-11-jre
-
-  # This adds the default snaps found on a 22.04 Ubuntu Desktop system.
-  # Any desired additional snaps may also be listed here.
+    
+  # installing snaps
   snaps:
     - name: firefox
     - name: gnome-3-38-2004
@@ -24,12 +21,8 @@ autoinstall:
       channel: stable
       classic: true
 
-  # User creation can occur in one of 3 ways:
-  # 1. Create a user using this `identity` section.
-  # 2. Create users as documented in cloud-init inside the user-data section,
-  #    which means this single-user identity section may be removed.
-  # 3. Prompt for user configuration on first boot.  Remove this identity
-  #    section and see the "Installation without a default user" section.
+  # main-User creation
+
   identity:
     realname: 'Camp Admin'
     username: main
@@ -38,35 +31,23 @@ autoinstall:
     password: '$6$DlXAWRHZXVd7dGOK$VMQBYBKVfDXYHl0pu9gk6/XrrddSKJd66tDXYsajZpgD0Sh1WlAhKHScmDCaIyk/8/NTvm3sIWlVcj.xizT1l0'
     hostname: ubuntu-desktop
 
-  # Subiquity will, by default, configure a partition layout using LVM.
-  # The 'direct' layout method shown here will produce a non-LVM result.
+  # Tell subiquity not to use LVM, but direct storage layout
   storage:
     layout:
       name: direct
-  # Ubuntu Desktop uses the hwe flavor kernel by default.
-  # early-commands:
-    # - echo 'linux-generic-hwe-22.04' > /run/kernel-meta-package
+
+  # set keyboard layout
+
   keyboard:
     layout: de
     variant: nodeadkeys
-  # The live-server ISO does not contain some of the required packages,
-  # such as ubuntu-desktop or the hwe kernel (or most of their depdendencies).
-  # The system being installed will need some sort of apt access.
-  # proxy: http://192.168.0.1:3142
 
   late-commands:
-    # Keep cloud-init, as it performs some of the installation on first boot.
+    # get cloudinit
     - curtin in-target -- apt-get install -y cloud-init
 
-    # A postinstall script may optionally be used for further install
-    # customization. Deploy this postinstall.sh script on the webserver.
+    # Download and exec postinstall script
     - wget https://raw.githubusercontent.com/phowobos/Minecraftcamp-Ubuntu-Autoinstall/main/postinstall.sh -P /target/root/
     - curtin in-target --target=/target -- chmod +x /root/postinstall.sh
     - curtin in-target --target=/target -- bash /root/postinstall.sh
     # - rm /target/postinstall.sh
-
-  # Additional cloud-init configuration affecting the target
-  # system can be supplied underneath a user-data section inside of
-  # autoinstall.
-  # user-data:
-  #   …
