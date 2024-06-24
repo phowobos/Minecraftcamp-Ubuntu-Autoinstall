@@ -46,7 +46,9 @@ autoinstall:
   # Ubuntu Desktop uses the hwe flavor kernel by default.
   # early-commands:
     # - echo 'linux-generic-hwe-22.04' > /run/kernel-meta-package
-
+  keyboard:
+    layout: de
+    variant: nodeadkeys
   # The live-server ISO does not contain some of the required packages,
   # such as ubuntu-desktop or the hwe kernel (or most of their depdendencies).
   # The system being installed will need some sort of apt access.
