@@ -14,6 +14,9 @@ if [ "$UID" != "0" ]; then
    fi 
 fi
 
+# connect to wifi
+nmcli d wifi connect 'gat' password FozzyTheDog1
+
 # System update
 sudo apt-update
 
