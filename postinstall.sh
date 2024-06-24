@@ -26,7 +26,7 @@ sudo cat >> /etc/dconf/db/local.d/00-background << EOF
 [org/gnome/desktop/background]
 
 # Specify the path to the desktop background image file
-picture-uri='file:///usr/share/wallpapers/Minecraft_Background.png'
+picture-uri='/usr/share/wallpapers/Minecraft_Background.png'
 
 # Specify one of the rendering options for the background image:
 picture-options='scaled'
