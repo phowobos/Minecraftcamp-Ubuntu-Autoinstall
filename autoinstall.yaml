@@ -43,8 +43,6 @@ autoinstall:
   storage:
     layout:
       name: direct
-  keyboard:
-      layout: de
   # Ubuntu Desktop uses the hwe flavor kernel by default.
   # early-commands:
     # - echo 'linux-generic-hwe-22.04' > /run/kernel-meta-package
